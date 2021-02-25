@@ -1,5 +1,6 @@
 /*
-  Once you complete a problem, refresh ./for-in-delete.html in your browser and check to see if the problem's test(s) are passing.
+  Once you complete a problem, refresh ./for-in-delete.html in your browser and check to see if the 
+  problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
 
@@ -7,8 +8,10 @@
 */
 
 /*
-  First we'll look at the difference between accessing property values in a for in loop and accessing the property name in a for in loop.
-  In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
+  First we'll look at the difference between accessing property values in a for in loop and accessing 
+  the property name in a for in loop.
+  In the example below, we are accessing the property values. Uncomment the code below, run it and look 
+  at what prints in the console.
 */
 
 // var values = {
@@ -24,7 +27,8 @@
 // }
 
 /*
-  In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
+  In this next example, we are accessing the property names themselves. Uncomment the code below, 
+  run it and look at what prints in the console.
 */
 
 // for(var key in values) {
@@ -36,11 +40,15 @@
 ////////// PROBLEM 1 //////////
 
 /*
-  Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
+  Inside the function showValues, write a for in loop that concatenates each of the property values 
+  and returns the concatenated string.
 */
 
 function showValues( obj ) {
-  //Code Here
+  let valueStr = "";
+  for(const key in obj){
+    valueStr=`${valueStr}${obj[key]}`
+  }return valueStr
 }
 
 
@@ -53,7 +61,13 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
+function greaterThan10 (obj){
+  for(let key in obj){
+    if(obj[key] > 10){
+      obj[key] = 0
+    }
+  } return obj;
+}
 
 
 
@@ -65,7 +79,12 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
+function double(object){
+  for(let key in object){
+    object[key] = object[key] * 2
+  }
+  return object
+}
 
 
 
@@ -79,7 +98,15 @@ function showValues( obj ) {
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
 
-//Code Here
+function secrets(object){
+  let string = '';
+  for(let key in object){
+    if(key.charAt(0) === 's' && key.charAt(1) === 'h'){
+      string += object[key];
+    }
+  }
+  return string
+}
 
 
 
@@ -110,7 +137,14 @@ function showValues( obj ) {
   Delete the property password and return the object.
 */
 
-//Code Here
+function removePassword(object){
+  for(let key in object){
+    if(key === 'password'){
+      delete object[key]
+    }
+  }
+  return object
+}
 
 
 
@@ -126,10 +160,18 @@ var deleteTheBigNumbers = {
 // Do not edit the code above.
 
 /*
-  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
+  Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is 
+  greater than 100.
 */
+// function deletBig(obj){
+  for(let key in deleteTheBigNumbers){
+    if(deleteTheBigNumbers[key] > 100){
+      delete deleteTheBigNumbers[key]
+    }
+  } 
+// }
 
-//Code Here
+
 
 
 
@@ -142,7 +184,14 @@ var deleteTheBigNumbers = {
   Return the updated object.
 */
 
-//Code Here
+function startsWithK (obj){
+  for(let key in obj){
+    if(key.charAt(0) === 'k'){
+      delete obj[key]
+    }
+  }
+  return obj
+}
 
 
 
@@ -157,6 +206,12 @@ var deleteTheBigNumbers = {
   (hint: the method includes() may be of use...)
 */
 
-//Code Here
-
+function hiddenTreasure (obj){
+  for(let key in obj){
+    if(!obj[key] .includes('treasure')){
+    delete obj[key]
+    }
+  }
+  return obj
+}
 
